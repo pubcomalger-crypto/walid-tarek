@@ -24,7 +24,7 @@ const profileConfig = {
         snapchat: "https://www.snapchat.com/@sheikh_tidiane?sender_web_id=792b2a4d-05d3-4e8f-a5e0-1aeb89eba722&device_type=desktop&is_copy_url=true",
         email: "Tareksayah@yahoo.com",
         website: "https://www.youtube.com/",
-        maps: "https://share.google/T1z7NAFbftnLYNKZy",
+        maps: "https://share.google/aRpJgSzr8dLPFhJ53",
         phone: "+213540846323"
     },
     
@@ -83,4 +83,5 @@ if (typeof module !== 'undefined' && module.exports) {
 } else {
     window.profileConfig = profileConfig;
 }
+
 
