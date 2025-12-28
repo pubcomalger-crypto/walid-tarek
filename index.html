@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte de Visite NFC</title>
+        <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="profile-image">
+            <img src="" alt="" id="profile-pic">
+        </div>
+        
+        <p class="bio-text" id="bio-text"></p>
+        <h1 id="profile-name">Daisy Parkhouse</h1>
+        <!-- Bouton Enregistrer le contact -->
+        <div class="save-contact-container">
+            <button id="save-contact-btn" class="save-contact-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
+                    <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
+                </svg>
+                Enregistrer le contact
+            </button>
+        </div>
+
+        <div class="social-grid">
+            <div class="icon-wrapper">
+                <a href="" class="social-icon facebook" id="facebook-link" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+             shape-rendering="geometricPrecision" 
+             text-rendering="geometricPrecision" 
+             image-rendering="optimizeQuality" 
+             fill-rule="evenodd" 
+             clip-rule="evenodd" 
+             viewBox="0 0 509 509"
+             aria-hidden="true">
+            <g fill-rule="nonzero">
+                <path fill="#0866FF" d="M509 254.5C509 113.94 395.06 0 254.5 0S0 113.94 0 254.5C0 373.86 82.17 474 193.02 501.51V332.27h-52.48V254.5h52.48v-33.51c0-86.63 39.2-126.78 124.24-126.78 16.13 0 43.95 3.17 55.33 6.33v70.5c-6.01-.63-16.44-.95-29.4-.95-41.73 0-57.86 15.81-57.86 56.91v27.5h83.13l-14.28 77.77h-68.85v174.87C411.35 491.92 509 384.62 509 254.5z"/>
+                <path fill="#fff" d="M354.18 332.27l14.28-77.77h-83.13V227c0-41.1 16.13-56.91 57.86-56.91 12.96 0 23.39.32 29.4.95v-70.5c-11.38-3.16-39.2-6.33-55.33-6.33-85.04 0-124.24 40.16-124.24 126.78v33.51h-52.48v77.77h52.48v169.24c19.69 4.88 40.28 7.49 61.48 7.49 10.44 0 20.72-.64 30.83-1.86V332.27h68.85z"/>
+            </g>
+        </svg>
+
+                </a>
+                <span class="icon-label">Facebook</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="https://instagram.com/daisyparkhouse" class="social-icon instagram" id="instagram-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <span class="icon-label">Instagram</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="#" class="social-icon phone" id="phone-link" onclick="if(confirm('Voulez-vous appeler ce numéro ?')){ window.location.href = 'tel:' + (window.profileConfig?.socialLinks?.phone || '').replace(/[^0-9+]/g, ''); } return false;">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                    </svg>
+                </a>
+                <span class="icon-label">Appeler</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="mailto:contact@example.com" class="social-icon email" id="email-link">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <span class="icon-label">Email</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="https://tiktok.com/@daisyparkhouse" class="social-icon tiktok" id="tiktok-link" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+             shape-rendering="geometricPrecision" 
+             text-rendering="geometricPrecision" 
+             image-rendering="optimizeQuality" 
+             fill-rule="evenodd" 
+             clip-rule="evenodd" 
+             viewBox="0 0 461 512.235"
+             aria-hidden="true">
+            <g fill-rule="nonzero">
+                <path fill="#2DCCD3" d="M370.934 98.964c19.378 19.981 43.543 32.158 67.898 37.7v-15.005c-22.884-1.621-46.823-8.822-67.898-22.695zM230.952 0v335.533c0 43.959-31.593 72.234-70.009 72.234-12.743 0-24.844-2.978-35.363-8.483 13.346 17.041 34.421 26.843 57.531 26.843 38.417 0 70.01-28.275 70.01-72.272V18.322h60.886C312.348 12.479 310.99 6.371 309.934 0h-78.982zM181 195.062v-16.627c-7.691-1.281-15.382-1.696-21.753-1.696C72.573 176.739 0 246.296 0 332.555c0 56.626 27.559 105.033 69.444 133.685-29.18-28.953-47.276-69.481-47.276-115.362 0-86.109 72.347-155.628 158.832-155.816z"/>
+                <path fill="#F1204A" d="M318.87 329.991c0 107.144-81.96 163.921-159.209 163.921-33.44 0-64.505-10.103-90.217-27.672 28.879 28.652 68.616 45.995 112.385 45.995 77.248 0 159.208-56.777 159.208-163.921V173.723c-7.69-5.203-15.08-11.272-22.167-18.36v174.628zm-193.289 69.294c-9.426-11.914-15.043-27.334-15.043-45.43 0-50.782 39.698-77.624 92.629-72.045v-85.052c-7.69-1.282-15.381-1.697-21.79-1.697H181v68.389c-52.931-5.542-92.63 21.263-92.63 72.083 0 29.707 15.193 52.252 37.211 63.752zm313.251-262.621v63.525c-35.174 0-68.464-6.711-97.795-26.466 34.157 34.157 75.59 44.826 119.963 44.826v-78.567a137.713 137.713 0 01-22.168-3.318zm-67.898-37.701c-18.737-19.265-33.026-45.806-38.832-80.641h-18.095c10.329 37.663 31.592 63.94 56.927 80.641z"/>
+                <path d="M159.661 493.912c77.248 0 159.209-56.777 159.209-163.921V155.364c7.088 7.087 14.477 13.157 22.168 18.359 29.33 19.755 62.62 26.466 97.794 26.466v-63.525c-24.354-5.542-48.52-17.72-67.898-37.7-25.335-16.702-46.597-42.979-56.928-80.641H253.12v335.533c0 43.996-31.593 72.271-70.009 72.271-23.111 0-44.185-9.801-57.531-26.842-22.017-11.499-37.21-34.044-37.21-63.751 0-50.821 39.698-77.626 92.63-72.084v-68.388c-86.485.189-158.832 69.708-158.832 155.815 0 45.882 18.096 86.409 47.277 115.363 25.711 17.569 56.776 27.672 90.216 27.672z"/>
+            </g>
+        </svg>
+                </a>
+                <span class="icon-label">TikTok</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="https://wa.me/1234567890" class="social-icon whatsapp" id="whatsapp-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                </a>
+                <span class="icon-label">WhatsApp</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="https://t.me/daisyparkhouse" class="social-icon telegram" id="telegram-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                </a>
+                <span class="icon-label">Telegram</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="#" class="social-icon linkedin" id="linkedin-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <span class="icon-label">LinkedIn</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="#" class="social-icon website" id="website-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                </a>
+                <span class="icon-label">Site Web</span>
+            </div>
+
+            <div class="icon-wrapper">
+                <a href="#" class="social-icon maps" id="maps-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                </a>
+                <span class="icon-label">Localisation</span>
+            </div>
+
+            <div class="icon-wrapper" id="snapchat-wrapper">
+                <a href="https://snapchat.com/add/daisyparkhouse"
+       class="social-icon snapchat"
+       id="snapchat-link"
+       target="_blank">
+        <svg class="snap-icon"
+             xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 512 512"
+             aria-hidden="true">
+            <rect fill="#FFFC00" width="512" height="512" rx="105" ry="105"/>
+            <g fill-rule="nonzero">
+                <path fill="#fff" d="M424.16 341.5c-1.47-4.87-8.51-8.3-8.51-8.3v.01c-.65-.37-1.25-.67-1.76-.92-11.72-5.67-22.1-12.47-30.86-20.22-7.03-6.22-13.05-13.07-17.89-20.37-5.9-8.89-8.67-16.32-9.87-20.34-.66-2.62-.55-3.66 0-5.03.47-1.14 1.81-2.25 2.47-2.75 3.96-2.8 10.33-6.93 14.24-9.46 3.39-2.19 6.31-4.09 8.01-5.27 5.51-3.85 9.27-7.77 11.49-11.99 2.88-5.47 3.22-11.48.98-17.41-3.02-7.98-10.47-12.75-19.94-12.75-2.11 0-4.27.24-6.42.71-5.42 1.17-10.57 3.1-14.88 4.78a.472.472 0 01-.64-.46c.46-10.67.97-25-.21-38.64-1.07-12.33-3.6-22.72-7.75-31.77-4.17-9.09-9.58-15.82-13.82-20.67-4.05-4.64-11.13-11.45-21.83-17.57-15.07-8.62-32.22-12.99-50.97-12.99-18.71 0-35.84 4.37-50.92 12.98-11.33 6.47-18.57 13.79-21.88 17.58-4.24 4.85-9.64 11.58-13.81 20.67-4.15 9.05-6.69 19.44-7.75 31.77-1.19 13.66-.71 26.87-.22 38.63.02.35-.33.59-.65.47-4.3-1.68-9.46-3.61-14.87-4.78-2.15-.47-4.31-.71-6.42-.71-9.47 0-16.92 4.77-19.94 12.75-2.24 5.93-1.9 11.94.98 17.41 2.23 4.22 5.99 8.14 11.49 11.99 1.7 1.18 4.62 3.08 8.01 5.27 3.83 2.48 10.02 6.49 14 9.28.49.36 2.17 1.62 2.7 2.93.57 1.4.67 2.46-.05 5.24-1.24 4.06-4.01 11.39-9.8 20.13-4.85 7.3-10.87 14.15-17.9 20.37-8.76 7.75-19.14 14.55-30.86 20.22-.55.27-1.21.61-1.93 1.02v-.01s-7 3.58-8.32 8.2c-1.95 6.83 3.24 13.22 8.56 16.65 8.68 5.59 19.25 8.6 25.38 10.24 1.7.45 3.25.87 4.66 1.31.88.29 3.09 1.12 4.03 2.33 1.19 1.53 1.33 3.43 1.76 5.56.68 3.59 2.17 8.06 6.62 11.12 4.88 3.38 11.09 3.62 18.95 3.92 8.22.32 18.46.71 30.16 4.57 5.43 1.8 10.35 4.82 16.04 8.31 11.89 7.31 26.69 16.4 51.98 16.4 25.3 0 40.2-9.14 52.17-16.49 5.66-3.47 10.55-6.47 15.85-8.22 11.71-3.87 21.94-4.26 30.16-4.57 7.86-.3 14.07-.54 18.96-3.92 4.75-3.28 6.13-8.17 6.75-11.87.33-1.83.56-3.46 1.61-4.81.89-1.15 2.93-1.95 3.89-2.29 1.45-.45 3.05-.88 4.82-1.35 6.13-1.64 13.81-3.58 23.16-8.86 11.19-6.32 11.95-14.17 10.79-18.03z"/>
+                <path d="M408.78 351.17c-15.32 8.46-25.5 7.56-33.42 12.65-6.73 4.33-2.75 13.67-7.64 17.04-6 4.15-23.76-.29-46.68 7.28-18.91 6.25-30.98 24.23-65.03 24.23-34.12 0-45.83-17.89-65.02-24.23-22.93-7.57-40.68-3.13-46.69-7.28-4.88-3.37-.91-12.71-7.63-17.04-7.92-5.09-18.11-4.19-33.42-12.65-9.75-5.38-4.22-8.72-.97-10.29 55.49-26.86 64.33-68.34 64.73-71.46.48-3.72 1.01-6.65-3.1-10.45-3.96-3.66-21.55-14.54-26.42-17.95-8.08-5.63-11.63-11.27-9.01-18.19 1.8-4.78 6.29-6.59 11.01-6.59 1.47 0 2.96.18 4.4.49 8.86 1.93 17.47 6.36 22.45 7.57.68.16 1.29.24 1.83.24 2.64 0 3.58-1.34 3.4-4.37-.57-9.7-1.94-28.6-.42-46.26 2.1-24.29 9.94-36.33 19.25-46.98 4.47-5.12 25.46-27.3 65.61-27.3 40.26 0 61.15 22.18 65.62 27.3 9.31 10.65 17.15 22.69 19.24 46.98 1.53 17.66.21 36.57-.41 46.26-.21 3.19.75 4.37 3.4 4.37.54 0 1.15-.08 1.83-.24 4.98-1.21 13.58-5.64 22.45-7.57 1.44-.31 2.93-.49 4.4-.49 4.72 0 9.2 1.81 11.01 6.59 2.62 6.92-.93 12.56-9.01 18.19-4.88 3.41-22.46 14.29-26.43 17.95-4.1 3.8-3.57 6.73-3.1 10.45.4 3.12 9.25 44.6 64.74 71.46 3.25 1.57 8.78 4.91-.97 10.29zM265.06 79.91h-18.08c-17.08 1.22-32.88 5.93-47.09 14.05-12.03 6.87-20 14.55-24.58 19.78-10.99 12.57-21.52 28.35-24.12 58.45-.74 8.55-.92 17.3-.79 25.49-.75-.19-1.5-.36-2.26-.53-2.88-.63-5.79-.94-8.65-.94-13.79 0-25.2 7.48-29.75 19.53-3.29 8.69-2.75 17.93 1.51 26.01 3.02 5.74 7.85 10.88 14.77 15.7 1.84 1.29 4.69 3.14 8.3 5.48 1.95 1.26 4.8 3.11 7.6 4.95.42.3 1.93 1.4 2.43 2.45.58 1.2.6 2.49-.26 4.87-1.48 3.27-3.6 7.26-6.6 11.66-8.93 13.05-21.69 24.1-37.98 32.93-8.64 4.6-17.61 7.63-21.4 17.93-.85 2.31-1.28 4.71-1.28 7.14.01 5.77 2.45 11.69 7.55 16.93l.01-.01c2.39 2.57 5.39 4.85 9.18 6.93 8.89 4.91 16.45 7.32 22.4 8.97 1.04.31 3.46 1.1 4.52 2.02 2.65 2.32 2.27 5.81 5.8 10.91 2.13 3.18 4.6 5.34 6.62 6.74 7.4 5.11 15.72 5.43 24.52 5.77 7.96.3 16.97.65 27.28 4.05 4.26 1.41 8.69 4.13 13.83 7.29 11.05 6.79 25.77 15.83 49.06 17.63h16.81c23.32-1.81 38.14-10.89 49.26-17.72 5.1-3.13 9.51-5.83 13.66-7.2 10.29-3.41 19.31-3.75 27.27-4.05 8.8-.34 17.11-.66 24.51-5.77 2.33-1.61 5.24-4.22 7.55-8.22 2.53-4.31 2.47-7.35 4.85-9.43.97-.85 3.11-1.58 4.25-1.94 6-1.65 13.66-4.05 22.7-9.05 4.01-2.21 7.15-4.63 9.61-7.39.03-.03.06-.07.09-.1 6.81-7.33 8.52-15.92 5.73-23.5-2.49-6.77-7.23-10.4-12.63-13.4a40.52 40.52 0 00-2.72-1.44c-1.61-.83-3.25-1.64-4.9-2.49-16.83-8.92-29.97-20.18-39.1-33.53-3.08-4.51-5.22-8.58-6.7-11.89-.78-2.23-.75-3.48-.19-4.64.42-.88 1.55-1.8 2.15-2.24 2.89-1.91 5.89-3.86 7.91-5.16 3.6-2.34 6.45-4.19 8.3-5.48 6.91-4.82 11.74-9.96 14.77-15.7 4.26-8.08 4.8-17.32 1.51-26.01-4.56-12.05-15.96-19.53-29.75-19.53-2.86 0-5.77.31-8.66.94-.76.17-1.51.34-2.25.53.12-8.19-.05-16.94-.79-25.49-2.6-30.1-13.13-45.88-24.13-58.45-4.58-5.24-12.55-12.93-24.52-19.77-14.2-8.13-30.02-12.84-47.13-14.06z"/>
+            </g>
+        </svg>
+    </a>
+    <span class="icon-label">Snapchat</span>
+</div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="linkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalText" style="margin-bottom: 10px; font-size: 18px; font-weight: 600;"></p>
+            <a href="#" id="modalLink" target="_blank" class="modal-link">Ouvrir</a>
+        </div>
+    </div>
+
+    <script>
+        // Mettre à jour le contenu de la page avec les données de config.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const config = window.profileConfig || {};
+            
+            // Mettre à jour le nom et la biographie
+            if (config.name) {
+                document.getElementById('profile-name').textContent = config.name;
+                document.title = `${config.name} - Carte de Visite`;
+            }
+            
+            if (config.bio) {
+                document.getElementById('bio-text').textContent = config.bio;
+            }
+            
+            // Mettre à jour l'image de profil
+            if (config.profileImage) {
+                document.getElementById('profile-pic').src = config.profileImage;
+                document.getElementById('profile-pic').alt = config.name || 'Photo de profil';
+            }
+            
+            // Mettre à jour les liens des réseaux sociaux
+            const socialLinks = config.socialLinks || {};
+            
+            // Facebook
+            if (socialLinks.facebook) {
+                const fbLink = document.getElementById('facebook-link');
+                if (fbLink) {
+                    // Utiliser directement le lien complet fourni dans la configuration
+                    fbLink.href = socialLinks.facebook.startsWith('http') ? 
+                        socialLinks.facebook : 
+                        `https://facebook.com/${socialLinks.facebook}`;
+                    
+                    // Masquer si désactivé
+                    if (config.enabledIcons && !config.enabledIcons.facebook) {
+                        fbLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Instagram
+            if (socialLinks.instagram) {
+                const igLink = document.getElementById('instagram-link');
+                if (igLink) {
+                    // Utiliser directement le lien complet fourni dans la configuration
+                    igLink.href = socialLinks.instagram.startsWith('http') ? 
+                        socialLinks.instagram : 
+                        `https://instagram.com/${socialLinks.instagram}`;
+                        
+                    if (config.enabledIcons && !config.enabledIcons.instagram) {
+                        igLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // TikTok
+            if (socialLinks.tiktok) {
+                const tiktokLink = document.getElementById('tiktok-link');
+                if (tiktokLink) {
+                    // Utiliser directement le lien complet fourni dans la configuration
+                    tiktokLink.href = socialLinks.tiktok.startsWith('http') ? 
+                        socialLinks.tiktok : 
+                        `https://tiktok.com/@${socialLinks.tiktok}`;
+                        
+                    if (config.enabledIcons && !config.enabledIcons.tiktok) {
+                        tiktokLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // WhatsApp
+            if (socialLinks.whatsapp) {
+                const waLink = document.getElementById('whatsapp-link');
+                if (waLink) {
+                    waLink.href = `https://wa.me/${socialLinks.whatsapp.replace(/[^0-9]/g, '')}`;
+                    if (config.enabledIcons && !config.enabledIcons.whatsapp) {
+                        waLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Telegram
+            if (socialLinks.telegram) {
+                const tgLink = document.getElementById('telegram-link');
+                if (tgLink) {
+                    // Utiliser le numéro de téléphone pour le lien Telegram, similaire à WhatsApp
+                    tgLink.href = `https://t.me/+${socialLinks.telegram.replace(/[^0-9]/g, '')}`;
+                    if (config.enabledIcons && !config.enabledIcons.telegram) {
+                        tgLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Email
+            if (socialLinks.email) {
+                const emailLink = document.getElementById('email-link');
+                if (emailLink) {
+                    emailLink.href = `mailto:${socialLinks.email}`;
+                    if (config.enabledIcons && !config.enabledIcons.email) {
+                        emailLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // LinkedIn
+            if (socialLinks.linkedin) {
+                const linkedinLink = document.getElementById('linkedin-link');
+                if (linkedinLink) {
+                    linkedinLink.href = `https://linkedin.com/in/${socialLinks.linkedin}`;
+                    if (config.enabledIcons && !config.enabledIcons.linkedin) {
+                        linkedinLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Site Web
+            if (socialLinks.website) {
+                const websiteLink = document.getElementById('website-link');
+                if (websiteLink) {
+                    // Ajouter https:// si ce n'est pas déjà présent
+                    const websiteUrl = socialLinks.website.startsWith('http') ? 
+                        socialLinks.website : 
+                        `https://${socialLinks.website}`;
+                    websiteLink.href = websiteUrl;
+                    // Masquer si désactivé
+                    if (config.enabledIcons && !config.enabledIcons.website) {
+                        websiteLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Maps
+            if (socialLinks.maps) {
+                const mapsLink = document.getElementById('maps-link');
+                if (mapsLink) {
+                    mapsLink.href = socialLinks.maps;
+                    // Masquer si désactivé
+                    if (config.enabledIcons && !config.enabledIcons.maps) {
+                        mapsLink.parentElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Snapchat
+            if (socialLinks.snapchat) {
+                const snapchatLink = document.getElementById('snapchat-link');
+                const snapchatWrapper = document.getElementById('snapchat-wrapper');
+                if (snapchatLink && snapchatWrapper) {
+                    // Utiliser directement l'URL complète fournie dans la configuration
+                    snapchatLink.href = socialLinks.snapchat;
+                    // Masquer si désactivé
+                    if (config.enabledIcons && config.enabledIcons.snapchat === false) {
+                        snapchatWrapper.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Appliquer le thème si défini
+            if (config.theme) {
+                const root = document.documentElement;
+                if (config.theme.primaryColor) {
+                    root.style.setProperty('--primary-color', config.theme.primaryColor);
+                }
+                if (config.theme.secondaryColor) {
+                    root.style.setProperty('--secondary-color', config.theme.secondaryColor);
+                }
+                if (config.theme.backgroundColor) {
+                    document.body.style.backgroundColor = config.theme.backgroundColor;
+                }
+                if (config.theme.textColor) {
+                    document.body.style.color = config.theme.textColor;
+                }
+            }
+        });
+    </script>
+</body>
+    
+</html>
+
+
