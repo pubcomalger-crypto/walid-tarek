@@ -5,7 +5,7 @@ const profileConfig = {
 
 
     name: "Walid Tarek",
-    bio: "Chikour",
+    bio: "اللهم صلي وسلم على سيدنا محمد",
     profileImage: "https://i.ibb.co/WWsHmvVj/245386072-4647781595243911-4723399473753994969-n.jpg",
     
 
@@ -43,7 +43,7 @@ const profileConfig = {
         telegram: true,      // Afficher Telegram
         linkedin: false,     // Afficher LinkedIn (mettre true pour l'activer)
         website: false,       // Afficher Site Web
-        maps: true,          // Afficher Maps
+        maps: false,          // Afficher Maps
         phone: true,         // Afficher Téléphone
         snapchat: true,      // Afficher Snapchat
         email: true,         // Afficher Email
@@ -83,5 +83,6 @@ if (typeof module !== 'undefined' && module.exports) {
 } else {
     window.profileConfig = profileConfig;
 }
+
 
 
